@@ -1,0 +1,36 @@
+<div class="m-5">
+  <div class="container">
+    <div class="row">
+      <h4>El aroma mágico</h4>
+    </div>
+    <div class="row">
+      <div class="border-top border-bottom mb-3 line-break">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <img class="w-100" src="/assets/Banner.png" alt="banner">
+    </div>
+    <div class="row table-container">
+      <div class="col-9">
+        <table class="ms-4 table">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Región</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr *ngFor="let coffee of coffeeList">
+              <td class="fw-bolder">{{coffee.id}}</td>
+              <td>{{coffee.nombre}}</td>
+              <td>{{coffee.tipo}}</td>
+              <td>{{coffee.region}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
