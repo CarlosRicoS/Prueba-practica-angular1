@@ -4,6 +4,7 @@ import { CoffeeService } from '../coffee.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 import { Coffee } from '../coffee.model';
+import { By } from '@angular/platform-browser';
 
 const mockItems: Array<Coffee> = [
   {
@@ -80,5 +81,20 @@ describe('CoffeeListComponent', () => {
     component.coffeeList = mockItems;
     let count = component.getByType(type).length;
     expect(count).toEqual(2);
+  });
+
+  it('should render table', () => {
+    component.coffeeList = mockItems;
+    fixture.detectChanges();
+    const table = fixture.debugElement.queryAll(By.css('table'));
+    expect(table).toBeTruthy();
+  });
+
+  it('should render data', () => {
+    let rowHeaderCount = 1;
+    component.coffeeList = mockItems;
+    fixture.detectChanges();
+    const rows = fixture.debugElement.queryAll(By.css('tr'));
+    expect(rows.length).toBe(mockItems.length + rowHeaderCount);
   });
 });
