@@ -67,4 +67,18 @@ describe('CoffeeListComponent', () => {
     component.ngOnInit();
     expect(spy).toHaveBeenCalled();
   });
+
+  it('should filter by type <origen>', () => {
+    let type = 'Café de Origen';
+    component.coffeeList = mockItems;
+    let count = component.getByType(type).length;
+    expect(count).toEqual(1);
+  });
+
+  it('should filter by type <blend>', () => {
+    let type = 'Blend';
+    component.coffeeList = mockItems;
+    let count = component.getByType(type).length;
+    expect(count).toEqual(2);
+  });
 });

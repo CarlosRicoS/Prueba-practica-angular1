@@ -17,4 +17,8 @@ export class CoffeeListComponent implements OnInit {
       .getCoffees()
       .subscribe((next) => (this.coffeeList = next));
   }
+
+  getByType(type: string): Array<Coffee> {
+    return this.coffeeList.filter((coffee) => coffee.tipo === type);
+  }
 }
